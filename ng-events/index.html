@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es" ng-app="PP">
+<head>
+	<meta charset="UTF-8">
+	<title>Eventos</title>
+	<style type="text/css">
+		.hover{
+			background-color: red;
+			color: white;
+		}
+		.no-hover{
+			background-color: blue;
+			color: white;
+		}
+	</style>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+		<script type="text/javascript">
+			angular.module("PP",[])
+			.controller("AppController",function($scope){
+				//alert('asdasd');
+			})
+		</script>
+
+</head>
+<body ng-controller="AppController">
+	<button ng-click="bandera = !bandera" ng-mouseout="bandera=false" ng-class="{'hover':bandera , 'no-hover': !bandera}">
+		Hover me
+	</button>
+	<span ng-show="bandera">&lt;- Click me</span>
+	<p>
+		{{ bandera | json }}
+	</p>
+</body>
+</html>
