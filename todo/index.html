@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html ng-app="TodoList">
+<head>
+	<meta charset="utf-8">
+	<title>Primera pagina con angular</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-local-storage/0.5.2/angular-local-storage.min.js"></script>
+	<script src="controller.js"></script>
+</head>
+<body ng-controller="TodoController">
+	<ul>
+		<li ng-repeat="tarea in todo">
+			{{ tarea.descripcion }} -
+			{{ tarea.fecha | date:'short' }}
+		</li>
+	</ul>
+	<form ng-submit="agregarTarea()">
+		<input type="text" ng-model="nuevaTarea.descripcion">
+		<input type="datetime-local" ng-model="nuevaTarea.fecha">
+		<input type="submit" value="Guardar">
+	</form>
+	<button ng-click="todo = []">Limpiar</button>
+</body>
+</html>

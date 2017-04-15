@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html ng-app="PrimerModulo">
+<head>
+	<title>Practica hasta el video 7</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+	<script src="controller.js"></script>
+</head>
+<body ng-controller="PrimerController">
+	{{ "Hola "+ nombre + " vamos a hacer un arreglo push" }}
+	<br>
+	<input type="text" name="11" ng-model="arregloVacio.comentario"><br>
+	<input type="text" name="22" ng-model="arregloVacio.usuario">
+	<br>
+	<button ng-click="agregarArreglo()">ENVIAR</button>
+	<div>
+	<h4>Comentarios</h4>
+		<p>
+			<ul>
+				<li ng-repeat="arreglos in arreglo">
+				{{ arreglos.comentario }} - 
+				{{ arreglos.usuario }}</li>
+			</ul>
+		</p>
+	</div>
+	<div ng-repeat="lol in lols">
+		<h5>{{ lol.title }}</h5>
+		<p>{{ lol.body }}</p>
+	</div>
+	<div>
+		<input type="text" ng-model="nuevoPost.title"><br>
+		<textarea ng-model="nuevoPost.body"></textarea>
+		<br>	
+		<button ng-click="agregarPost()">Crear</button>
+		<ul>
+			<li ng-repeat="post in posts">
+				<h5>{{ post.title }}</h5>
+				<p>{{ post.body }}</p>
+			</li>
+		</ul>
+	</div>
+</body>
+</html>
