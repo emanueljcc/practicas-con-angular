@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html ng-app="HideApp">
+<head>
+	<meta charset="utf-8">
+	<title>Primera pagina con angular</title>
+	<style type="text/css">
+		.animated{
+			opacity: 1;
+			max-height: auto;
+			overflow: hidden;
+			transition: all 2s;
+		}
+		.animated.ng-hide{
+			opacity: 0;
+			max-height: 0px !important;
+			display: block !important;
+		}
+	</style>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-local-storage/0.5.2/angular-local-storage.min.js"></script>
+	<script src="controller.js"></script>
+</head>
+<body ng-controller="HideController">
+	<div ng-show="loading">Cargando...</div>
+	<div ng-show="!loading && post.length <= 0">No se encontraron resultados</div>
+		<ul ng-hide="post.length == 0" class="animated">
+			<li ng-repeat="posts in post">
+				<h3>{{ posts.title }}</h3>
+				<p>{{ posts.body }}</p>
+			</li>
+		</ul>
+</body>
+</html>
