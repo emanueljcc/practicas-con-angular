@@ -1,15 +1,15 @@
-angular.module("ListaApp",["LocalStorageModule"])
-.controller("ListaController",function($scope,localStorageService){
+angular.module("ListaApp",["ngStorage"])
+.controller("ListaController",function($scope,$localStorage, $sessionStorage){
 	
 
-	if(localStorageService.get("lista")){
-		$scope.todos = localStorageService.get("lista");
+	if($sessionStorage.localLista){
+		$scope.todos = $sessionStorage.localLista;
 	}else{
 		$scope.todos = [];
 	}
 
 	$scope.$watchCollection('todos',function(nuevoValor,viejoValor){
-		localStorageService.set("lista",$scope.todos);
+		$sessionStorage.localLista = $scope.todos;
 	});
 	
 	
