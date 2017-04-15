@@ -13,6 +13,7 @@ angular.module("TodoList",["LocalStorageModule"])
 		localStorageService.set("lista-angular",$scope.todo);
 	})
 	$scope.nuevaTarea = {};
+	console.log($scope.todo);
 	$scope.agregarTarea = function(){
 		$scope.todo.push($scope.nuevaTarea);
 		$scope.nuevaTarea = {};
