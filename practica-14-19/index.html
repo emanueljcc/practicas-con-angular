@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html ng-app="Practica3">
+<head>
+	<title>practica 14-19 angular</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+	<script type="text/javascript" src="https://cdn.jsdelivr.net/ngstorage/0.3.6/ngStorage.min.js"></script>
+	<script src="app.js"></script>
+</head>
+<body ng-controller="PracticaController">
+	
+
+	<form ng-submit="crearTarea()">
+		<input type="text" ng-model="nuevaTarea.nombre">
+		<input type="submit" name="">
+	</form>
+		<button ng-click="limpiar()">Limpiar</button>
+
+	
+	<ul>
+		<li ng-repeat="tar in tarea">
+			{{ tar.nombre }} - <a href="#" ng-click="unoAunoController(tar)" style="color: red;">X</a>
+		</li>
+	</ul>
+</body>
+</html>
