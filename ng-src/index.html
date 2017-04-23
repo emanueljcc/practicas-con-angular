@@ -4,13 +4,35 @@
 	<meta charset="utf-8">
 	<title>ng-src</title>
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+	<script
+	  src="https://code.jquery.com/jquery-3.2.1.min.js"
+	  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+	  crossorigin="anonymous"></script>
+	  <script src="autocomplete-jquery-ui.js"></script>
 	<script src="app.js"></script>
+	<style>
+		.circular{
+			border-radius: 50%;
+			width: 100px;
+			height: 100px;
+			display: inline-block;
+		}
+		.no-list li{
+			list-style-type: none;
+		}
+		body,html{
+			text-align: center;
+			background-color: #eee;
+			margin: 0px;
+		}
+	</style>
 </head>
 <body ng-controller="AppController">
+	<input type="text" my-autocomplete="repos" placeholder="buscar">
 	<ul class="no-list" ng-cloak>
-		<li ng-repeat="repo in repos">
-		<img ng-src="{{ repo.owner.avatar_url }}">
-			<h1>{{ repo.name }}</h1>
+		<li ng-repeat="repo in repos" ng-hide="main_repo && main_repo != repo.name">
+			<div class="circular" back-img="{{repo.owner.avatar_url}}"></div>
+			<h1 class="inline-block">{{ repo.name }}</h1>
 		</li>
 	</ul>
 </body>
